@@ -27,6 +27,7 @@ public class JPAConfiguration {
 		dataSource.setUsername("alura");
 		dataSource.setPassword("alura123");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
+		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 
 		factoryBean.setDataSource(dataSource);
 		Properties props = new Properties();
