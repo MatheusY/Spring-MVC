@@ -11,6 +11,9 @@
 <body>
 
 	<h1>Lista de Produtos</h1>
+	
+	<div>${Sucesso }</div>
+	
 	<table>
 		<tr>
 			<td>Titulo</td>
