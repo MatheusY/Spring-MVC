@@ -10,6 +10,7 @@ import org.springframework.cache.guava.GuavaCacheManager;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
@@ -89,15 +90,15 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		return new RestTemplate();
 	}
 	
-	@Bean
-	public CacheManager cacheManager() {
-		CacheBuilder<Object,Object> builder = CacheBuilder.newBuilder()
-			.maximumSize(100)
-			.expireAfterAccess(1, TimeUnit.DAYS);
-		GuavaCacheManager manager = new GuavaCacheManager();
-		manager.setCacheBuilder(builder);
-		return manager;
-	}
+//	@Bean
+//	public CacheManager cacheManager() {
+//		CacheBuilder<Object,Object> builder = CacheBuilder.newBuilder()
+//			.maximumSize(100)
+//			.expireAfterAccess(1, TimeUnit.DAYS);
+//		GuavaCacheManager manager = new GuavaCacheManager();
+//		manager.setCacheBuilder(builder);
+//		return manager;
+//	}
 	
 	@Bean
 	public ViewResolver contentNegotiationViewResolver(ContentNegotiationManager manager) {

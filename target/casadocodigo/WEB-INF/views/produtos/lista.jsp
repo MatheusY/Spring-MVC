@@ -3,11 +3,15 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<c:url value="resources/css" var="cssPath" />
+<base href="/">
+<c:url value="/resources/css" var="cssPath" />
 <link rel="stylesheet" href="${cssPath}/bootstrap.min.css">
 <link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css">
 <title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais -
@@ -35,6 +39,14 @@
 							Produtos </a></li>
 					<li><a href="${s:mvcUrl('PC#form').build()}"> Cadastro de
 							Produtos </a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="nav-item"><a href="#"> <security:authentication
+								property="principal" var="usuario" /> Usuário:
+							${usuario.username }
+					</a></li>
+					<li class="nav-item"><a href="<c:url value="/logout" />">Sair</a></span>
+					</li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
