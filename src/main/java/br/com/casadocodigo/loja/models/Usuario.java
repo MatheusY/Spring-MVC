@@ -1,8 +1,10 @@
 package br.com.casadocodigo.loja.models;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -22,8 +24,9 @@ public class Usuario implements UserDetails {
 	private String senha;
 	
 	private String nome;
-	@OneToMany(fetch = FetchType.EAGER)
-	private List<Role> roles;
+	
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	private List<Role> roles = new ArrayList<>();
 	
 	
 	public String getEmail() {
@@ -42,6 +45,14 @@ public class Usuario implements UserDetails {
 		this.senha = senha;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public List<Role> getRoles() {
 		return roles;
 	}
